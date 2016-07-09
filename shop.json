@@ -1,0 +1,21 @@
+[
+	{ "shop_id":"sg001",
+		"price":100,
+		"src":"img-sy/sg001",
+		"other":"red",
+		"weight":0.1
+	},
+	{ "shop_id":"sg002",
+		"price":200,
+		"src":"img-sy/sg002",
+		"other":"blue",
+		"weight":0.2
+	},
+	{ "shop_id":"sg003",
+		"price":300,
+		"src":"img-sy/sg003",
+		"other":"red",
+		"weight":0.3
+	}
+
+]

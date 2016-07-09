@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" href="css/footer.css" />
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link href="images/favicon.ico"  rel="shortcut icon"/>
+		<style type="text/css">
+		#header1{ height: 231px;}
+		.clearfix:before,
+		.clearfix:after {
+			content: "";
+			display: table;
+		}
+		.clearfix:after {
+			content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;
+		}
+		.clearfix{
+			zoom: 1;
+		}
+
+		.goods{ width: 991px; margin: 0 auto; }
+		.content{ background: #FFD875; height: 100%;}
+			.item{  width: 191px;
+				    margin: 0 0 6px 6px;
+				    background: #fff;
+				    float: left;
+				    }
+			#banner img{ height: 100%; width: 100%; display:block}
+			.goods img{height: 170px; width: 170px; padding:0 10px}	    
+			.num{ font-size: 24px;color: #c70034; font-weight: 700;}
+			.rmb{font-size: 16px;color: #c70034;}
+			.price{color: #e22a40;line-height: 24px;margin: 5px 20px}
+			.xj{font-size: 16px; font-weight: bold;color: #c70034;}
+					.detail {
+						    display: block;
+						    font-size: 14px;
+						    color: #333;
+						    line-height: 22px;
+						    height: 44px;
+						    margin: 0 20px;
+						    overflow: hidden;
+						}
+			.lh {
+			    display: block;
+			    color: #ec001d;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
+			    white-space: nowrap;
+			    font-size: 12px;
+			    height: 20px;
+			    line-height: 20px;
+			    margin: 0 20px;}
+    .btn{
+        width: 153px;
+    	height: 37px;
+        margin: 10px auto 5px;
+        display: block;
+        text-align: center;
+        line-height: 36px;
+        background:#C70034;
+        cursor: pointer;
+        color: #f0f0f0;
+}
+.hd-floor{
+	font-size: 32px;
+    font-weight: 700;
+    color: #646464;
+    text-align: center;
+    margin-bottom: 5px;
+}
+		</style>
+	</head>
+	<body>
+	<script type="text/javascript" src="js/jquery-1.11.3.js">
+	</script>
+
+	<div id="header1">
+		
+	</div>
+	<div id="banner">
+		<img src="images/banner-detail.jpg"/>
+	</div>
+	<div class="content">
+		<div class="hd-floor" style="background-color:;height:50px;line-height:50px;">
+			<span style="color:#f70303">满58减15</span>
+		</div>
+			<ul class="goods clearfix">	
+				
+			</ul>
+			<ul class="goods clearfix">	
+				
+			</ul>
+	</div>	
+	<div id="footer">
+		
+	</div>
+</body>
+<script type="text/javascript">
+function showNum() {
+	        var length = localStorage.length;
+	        var totalNum = 0;
+	        for (var i = 0; i < length; i++) {
+	            var key = localStorage.key(i);
+	            if (key.indexOf("lingsi_") != -1) {
+	                var value = JSON.parse(localStorage.getItem(key));
+	                totalNum += value.total;
+	            }
+	        }
+	        $(".showNum").html(totalNum);
+	    } 
+
+</script>
+	<script type="text/javascript">
+//	{"id":"lingsi_001",
+//	"src":"img-sy/_103279999_400x400.jpg",
+//	"cutoff":"满58元减15元",
+//	 "num": 38,
+//	 "xj":".8",
+//	 "del":"48元",
+//	 "detail":"泰星暹 泰国进口榴莲干 正宗金枕榴莲干 50g"
+//},
+
+showImg("lingsi",0)
+ var name="lingsi",numlist=0
+function showImg(name,numlist){
+		var url=name+".json"
+		$.ajax({
+			url:url,
+			type:"get",
+			dataType:"json",
+			success:function(data){
+				if (data.length > 0) {
+						
+	                for (var i = 0 ;i<data.length;i++){
+	                    var id = data[i]["id"];
+	                    var detail = data[i]["detail"];
+	                    var num = data[i]["num"];
+	                    var xj=data[i]["xj"];
+	                    var del=data[i]["del"];
+	                    var src = data[i]["src"];
+	                    var cutoff=data[i]["cutoff"];
+	     				var li =$("<li class='item'><a href='info.html?"+id+"'><img src="+src+"></a><p class='lh'>"+cutoff+
+	     				"</p><p class='price'><em class='rmb'>¥</em><span class='num'>"+num+"</span><span class='xj'>"+xj+
+	     				"</span><del>"+del+"</del></p><a class='detail' href='#'> "+detail+" </a></li>");
+	                    var btn=$("<a class='btn' data-id="+id+" data-num="+num+" data-xj=" + xj + " data-src=" + src + " data-detail=" + detail + " data-cutoff="+cutoff+" data-del="+del+">加入购物车</a>")
+	                    
+	                    li.append(btn)
+	                    $("ul.goods").eq(numlist).append(li);  
+	                }
+	           }
+			}
+		})	
+}
+
+	$("#header1").load("header.html",function(){
+		showNum();
+			
+		
+	})
+		$("ul.goods").eq(numlist).on("click",".btn",function(){
+ 
+			var id = $(this).attr("data-id");
+	        var price= $(this).attr("data-num")*1+$(this).attr("data-xj");
+	        var del=$(this).attr("data-del");
+	        var cutoff=$(this).attr("data-cutoff");
+	        var src = $(this).attr("data-src");
+	        var detail = $(this).attr("data-detail");
+	        
+	        var key = name+"_" + id;
+	        var obj = JSON.parse(localStorage.getItem(key));
+	        if (obj) {
+	            var num = obj.total;
+	            num++;
+	            obj.total = num;
+	            obj.totalprice = num * price;
+	        } else {
+	            obj = {id: id, price: price, src: src, del: del,cutoff: cutoff,detail: detail, total: 1, totalprice: price};
+	        }
+	        var infos = JSON.stringify(obj);
+	        localStorage.setItem(name+"_" + id, infos);;//key是唯一的
+	        showNum();
+		})
+		showNum();
+	    function showNum() {
+	        var length = localStorage.length;
+	        var totalNum = 0;
+	        for (var i = 0; i < length; i++) {
+	            var key = localStorage.key(i);
+	            if (key.indexOf(name+"_") != -1) {
+	                var value = JSON.parse(localStorage.getItem(key));
+	                totalNum += value.total;
+	            }
+	        }
+	        $(".showNum").html(totalNum);
+	    }   
+		 
+		 $(document).on("click","#buying",function(){
+		 	location="buying.html"
+		 })
+		 	$("#footer").load("footer.html div.m-g-footer",function(){
+	})
+	</script>
+</html>

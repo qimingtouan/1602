@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link href="images/favicon.ico"  rel="shortcut icon"/>
+		<style>
+			#content{width:960px; height: 560px; margin: 0 auto;
+			background: #F5F5F5;
+			}
+			#logo{ 60px;padding: 20px 0 20px 100px;}
+			#logo span{ font-size:20px;display: inline-block; height: 20px; vertical-align: auto;}
+			.reg-box{width:760px;height: 420px ; border: 1px solid #ccc;
+			 margin: 0 auto; background: #fff;}
+			.reg-nav{height: 36px; width: 760px;  margin: 0 auto; position: relative;}
+			.reg-nav p{ width:136px; height: 35px; border:1px solid #ddd;line-height: 35px;
+			text-align: center;float: left; margin:0px 10px; border-bottom: 0 none;}
+			.reg-nav p a{ height: 35px;width:136px;display: block;color: #000000;background:#fff ;  }
+			.no{border:0 none;}
+			.reg-nav p.active a{ color:#C20053; font-weight:bold; 
+			border-top:2px solid #C20053; height: 33px;
+			 border-bottom:1px solid #fff;font-weight:bold; }
+			 .reg-nav .mobile-reg{margin-left: 180px;}
+			 
+			 .loginbtn{ position: absolute; right:0; width: 140px; height: 18px; top:18px;font-size: 10px; }
+			 .loginbtn a{ color: #1683F2;}
+			 .ipt{ padding: 30px 0 0 40px; height:32px ;}
+			 .rt{text-align: right; width:100px ; display: 
+			 block;float: left;height: 30px; line-height: 30px; margin-right: 4px;}
+			 .mobile-txt{ width: 240px; height: 24px; float: left; padding: 2px 6px; }
+			.reg-box p.error{ float: left;height: 26px; line-height: 26px; 
+			padding:0 16px; border:1px solid #C70032; margin: 0 20px; display: none;}
+			.check-txt{ height: 28px; width: 140px; float: left; padding: 0 4px;}
+			.check-code{ margin: 20px 0 0 40px ; height: 32px;}
+			.check-code span,strong{ float: left; display: block;height: 30px; line-height: 30px;}
+			 a{color:#0066CC}		
+			i{color: red; padding: 0 4px;}
+			.pwd{position: relative;}
+			.mobile-code,.pwd,.check-pwd{  margin: 20px 0 0 40px ; height: 32px;}
+			#btn{width:108px; height: 30px; float: left; margin-left: 12px;}
+		.check-box{ margin: 30px 0 0 40px; height: 30px;}
+		.check-box p{ border: 0 none; font-size: 12px; height: 12px; line-height: 12px;}
+		 .check-box p span,{ float: left;}
+		.check-box input{ float: left;height: 12px; border: 1px; margin: 0 4px;}
+		#register{ background:#c70034; width:220px; height: 36px; margin:0 0 0 150px; display: block;
+		line-height: 36px;border: 1px solid #111; color:#fff; text-align: center;font-size: 18px;}
+	.pwd .safe{position: absolute;height: 12px ; width: 200px; font-size: 10px; line-height: 12px; text-align: center;
+	left: 175px; bottom:-16px}
+	.pwd .safe span{ float: left; background: #ccc; display: block; width: 40px;height: 12px; 
+		margin:0 2px; }
+	.pwd .safe strong{float: left; display: block; height: 12px; font-size: 10px; line-height: 12px;}
+		
+	#checkCode{ background:#ddd ; display: block; margin: 0 10px; padding: 0 8px;}	
+		</style>
+		
+	</head>
+	<body>
+		
+<div id="content">
+	<div id="logo">
+		<img src="img-sy/201606061936141465212974_kk-0.png"/><span>|欢迎注册</span>
+	</div>
+    <div class="reg-nav clearfix">
+        <p class="mobile-reg active"><a href="#">手机注册</a></p>
+        <p class=""><a href="email.html">邮箱注册</a></p>
+        <span class="no loginbtn">我已注册，马上<a href="#">登录&gt;</a></span>
+        
+    </div>
+    <div class="reg-box">   
+        <div class="ipt clearfix">
+        	<label>
+            	<span class="rt"><i>*</i>手机号码：</span>
+            	<input class="mobile-txt" type="text"  placeholder="请输入手机号码" value=""> 
+            	<p class="error">手机号码输入不正确</p>
+            </label>
+        </div>
+        <div class="check-code clearfix">
+            <label >
+            	<span class="rt"><i>*</i>图形验证码：</span>
+            	<input class="check-txt" type="text"  placeholder="请输入验证码">
+            	<span id="checkCode">1vts</span>
+            	<strong> 看不清？<a href="#" class="refresh"> 换一张</a></strong>
+            	<p class="error">手机号码输入不正确</p>
+            	
+            </label>
+        </div> 
+          <div class="mobile-code clearfix">
+            <label >
+            	<span class="rt"><i>*</i>手机验证码：</span>
+            	<input class="check-txt" type="text" placeholder="默认手机号码后六位"  >
+            	<input id="btn" type="button"  value="获取验证码" disabled="disabled"/>
+            	<p class="error">验证码输入不正确</p>
+            </label>
+        </div> 
+        
+        <div class="pwd clearfix">
+            <label >
+            	<span class="rt"><i>*</i>设置密码：</span>
+            	<input class="mobile-txt" type="password" placeholder="字母、数字、下划线6-18位" >
+            <p class="error">密码不符合要求</p>
+            </label>
+             <div class="safe"><strong>安全程度:</strong><span>低</span><span>中</span><span>高</span></div>
+        </div> 
+       
+        <div class="check-pwd clearfix">
+        	<label>
+            	<span class="rt"><i>*</i>确认密码：</span>
+            	<input class="mobile-txt" type="password" >
+            	<p class="error">验证码输入不正确</p>
+            </label>	
+        </div> 
+          
+          
+          
+        <div class="check-box clearfix">
+        	<span class="rt"></span>
+            <p class=""><input type="checkbox" class="agree"><span >我已阅读并同意</span>
+            <a class="" href="#" target="_blank">《飞牛网服务协议》</a></p>
+        </div>
+      <div>
+			<botton value="同意协议并注册" id="register">同意协议并注册</botton>
+      </div>
+    </div>
+
+<script type="text/javascript" src="js/jquery-1.11.3.js">
+	
+</script>
+<script type="text/javascript" src="js/cookie.js">
+	
+</script>
+ <script type="text/javascript">
+ 
+ 	$(window).ready(function(){
+ 		var isMobile=isCode=isMobileCode=isPwd=isCheckPwd=isCheckBox=false
+ 		function createChar(num1,num2){
+   				var arr1=[];
+   				for( var i=num1 ; i<num2; i++)
+				arr1.push(String.fromCharCode(i))
+				return arr1
+			}
+			var arr=[],arr1=createChar(97,123),arr2=createChar(65,91),arr3=createChar(48,58)
+			arr=arr1.concat(arr2).concat(arr3)//产生数字字母
+			
+			function createCode(){
+				var str1=""
+					for(var i=0;i<4;i++){
+						str1+=arr[parseInt(Math.random()*62)]
+					}
+					return str1
+			}
+				$("#checkCode").html(createCode())
+				$(".check-txt").eq(0).blur(function(){
+					if($(this).val()==$("#checkCode").html().toLowerCase()){
+						isCode=true
+						}
+					else{
+							$(".error").eq(1).css("display","block")
+							}
+				})
+				$(".refresh").click(function(){
+					$("#checkCode").html(createCode())
+					})
+ 	
+ 	function pwd(){
+ 		var reg=/^\w{6,18}$/
+ 		if(reg.test($(".mobile-txt").eq(1).val())){
+ 			isPwd=true
+ 		}else{
+ 			$(".error").eq(3).css("display","block")
+ 		}
+// 		var regS=/^[0-9]{6,18}$/ ||
+ 		
+ 		
+		
+ 	}
+ 	function checkMobile(){
+ 		var reg=/^(13|15|17|18)\d{9}$/
+ 		if(reg.test($(".mobile-txt").eq(0).val())){
+ 			$("#btn").prop("disabled",false)
+ 			isMobile=true}
+		else{
+			$(".error").eq(0).css("display","block")
+		}
+ 		
+ 	}
+ 	
+		function isReg(){
+		if (getCookie("userName_" + $(".mobile-txt").eq(0).val())) {
+            $(".error").eq(0).html("用户已注册").css("display","block")
+            return true
+       } else {
+       	
+            
+            return false
+        }
+		
+		}
+ 	
+ 	
+ 	function checkPwd(){
+ 			if($(".mobile-txt").eq(1).val()==$(".mobile-txt").eq(2).val()){
+ 			isCheckPwd=true}
+		else{
+			$(".error").eq(4).css("display","block")
+		}
+ 		
+ 		
+ 	}
+ 	
+ 		$(".mobile-txt").eq(0).blur(function(){
+					checkMobile()
+					isReg()
+				})
+ 	
+ 	$(".reg-box input").focus(function(){
+ 		$(this).nextAll("p.error").css("display","none")
+ 	})
+ 	$("#btn").prop("disabled",true)
+   	$(".check-txt").eq(1).change(function(){
+   		var str=$(".mobile-txt").eq(0).val().substring(5,11)
+   		
+   		if(str==$(this).val()){
+				isMobileCode=true
+				console.log(str)
+				}
+		else{
+				$(".error").eq(2).css("display","block")
+				}
+   		
+   	})
+ 	
+ 	$(".mobile-txt").eq(1).change(function(){
+ 		pwd()
+ 		
+ 	})
+ 	
+ 	$(".mobile-txt").eq(2).change(function(){
+ 		checkPwd() 		
+ 		
+ 	})
+ 	
+ 	$(".agree").click(function(){
+ 		isCheckBox=$(this).prop("checked")
+ 		//alert(isCheckBox)
+ 	})
+ 	
+ 	
+ 	$("#register").click(function(){
+ 	var res=isMobile&&isCode&&isMobileCode&&isPwd&&isCheckPwd&&isCheckBox&&!isReg()
+ 		if(res){
+ 			var useName=$(".mobile-txt").eq(0).val(),pword=$(".mobile-txt").eq(1).val()
+ 			setCookie("userName_"+useName, useName, 5);
+ 			setCookie("current", useName, 5);
+            setCookie("pwd_"+useName,pword, 5);
+ 			location="index.html"
+ 		}
+
+ 	})
+ 	
+ 	})
+ </script>
+ <script type="text/javascript">
+ 	
+ </script>
+	</body>
+</html>

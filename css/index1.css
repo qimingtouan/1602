@@ -1,0 +1,300 @@
+#banner-right .top{ width: 200px; height: 440px; background: #F7F3EF;margin-top:7px}	
+
+.s-p{margin-top: 3px;
+    height: 18px;
+    line-height: 18px;
+    font-weight: bold;}
+
+
+
+
+.md-at li {float: left; margin: 8px;}
+.md-at ul{ border-bottom:1px dashed #ccc}
+ .md-notice {
+    width: 190px;
+    height: 44px;
+    padding: 7px 0 7px 10px;
+    border-top: 1px dotted #ddd;
+    overflow: hidden;
+}
+.md-notice li {
+    width: 190px;
+    overflow: hidden;
+    height: 22px;
+    line-height: 22px;
+    display: list-item;
+    float: none;
+}
+.u-fn-recharge {
+    width: 200px;
+    height: 173px;
+    border-top: 1px dotted #ddd;
+}
+.u-fn-recharge .rge-item {
+    width: 200px;
+    height: 28px;
+    margin-top: -1px;
+}
+.u-fn-recharge .rge-num{
+    width: 178px;
+    height: 24px;
+    border: 1px solid #dedede;
+    background: #fff;
+    position: relative;
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+}
+.u-fn-recharge .rge-money {
+    width: 178px;
+    height: 24px;
+    border: 1px solid #dedede;
+    background: #fff;
+    position: relative;
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+    border-top:0 none
+}
+
+.u-fn-recharge .rge-cont {
+    width: 200px;
+    height: 145px;
+}
+
+.u-fn-recharge  .ipt {
+    width: 150px;
+    height: 13px;
+    padding: 5px 0 5px 5px;
+    line-height: 14px;
+    color: #333;
+    border: 0;
+    font-family: "Microsoft YaHei";
+    background: #fff;
+}
+.u-fn-recharge .rge-item li {
+    float: left;
+    width: 99px;
+    height: 27px;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.u-fn-recharge .rge-panel {
+    width: 180px;
+    padding: 10px 10px 0;
+    height: 115px;
+}
+.u-fn-recharge .rge-item li.z-select  {
+    height: 26px;
+    border-top: 2px solid #C20053;
+    border-bottom: 0 none;
+    color: #C20053;
+}
+.u-fn-recharge .rge-item li a {
+    display: block;
+    height: 27px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    font-family: "Microsoft YaHei";
+}	
+.price span{ color: #C20053;}
+.price{ padding: 20px 0 20px 0;}
+.u-fn-recharge .rge-btn .btn {
+    display: block;
+    width: 80px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    font-family: "Microsoft YaHei";
+    background: #C70034;
+}	
+.more h4 {
+    font-size: 16px;
+    color: #000;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    position: relative;
+    margin: 15px 0 13px;
+}
+
+
+.link li {
+    float: left;
+    overflow: hidden;
+    width: 80px;
+    height: 30px;
+    padding-left: 19px
+	}
+	
+	
+	 #tspd h3{height: 30px;
+    line-height: 21px;
+    font-size: 20px;
+    color: #666;}
+	.tspd-img a{float: left;}
+	#tspd{ height: 600px; width: 1190px;}
+	.tspd-img{ height:430px;}
+
+
+
+
+#floor001{ height: 600px; width:1190px ;}
+.m-fn-floor{height: 30px; padding: 16px 0 6px 0;}
+.m-fn-floor h3 {
+    display: inline-block;
+    font-size: 20px;
+    line-height: 30px;
+    color: #666;
+    padding-left: 40px;
+    position: relative;
+}
+
+.m-fn-floor .f-tab {
+    height: 34px;
+    line-height: 34px;
+    border: 1px solid #E9E9E9;
+    border-bottom: none;
+    }
+    .fr {
+    float: right}
+ .m-fn-floor .f-tab li {
+    float: left;
+    width: 120px;
+    height: 35px;
+    display: inline-block;
+    position: relative;
+}
+.m-fn-floor .f-tab li:hover a {
+    width: 119px;
+    height: 36px;
+    line-height: 36px;
+    border-color: #C20053;
+    color: #C20053;
+    font-weight: 700;
+    position: absolute;
+    text-indent: 2px;
+    top: -1px;
+    left: -1px;
+}
+.m-fn-floor .f-tab a {
+    width: 118px;
+    font-size: 12px;
+    color: #666;
+    height: 33px;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #fff;
+    border-bottom: none;
+    background-color: #fff;
+    overflow: hidden;
+    display: inline-block;
+}
+.f-s {
+    width: 190px;
+    height: 488px;
+    float: left;
+    /* background-color: #fff; */
+}
+ .f-s .words a {
+    display: inline-block;
+    color: #666;
+    font-size: 12px;
+    margin: 0 7px;
+    line-height: 27px;
+    max-width: 60px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+ .f-s .nav {
+    width: 170px;
+    height: 243px;
+    padding: 0 10px;
+    position: relative;
+    border-top: 1px solid #C20053;
+}
+ .f-s .words {
+    width: 170px;
+    height: 162px;
+    padding-top: 9px;
+    margin-bottom: 9px;
+    font-size: 0;
+}
+ .f-s .sale {
+    width: 170px;
+    height: 46px;
+    padding: 8px 0;
+    border-top: 1px dotted #ccc;
+}
+ .f-s .sale a{
+ 	display: block;
+ }
+ .f-s .words a.z-h-c {
+    color: #C20053;
+}
+.f1-2{
+	float: left;
+}
+.f1-2 ul { border-top: 1px solid #C20053;}
+.f1-2 ul li{
+	list-style: none;
+	float: left;
+}
+.f1-2 p span {
+    font-size: 16px;
+    color: #C70034;
+    font-weight: 700;
+}
+.prod p a {
+    width: 160px;
+    height: 36px;
+    line-height: 18px;
+    display: inline-block;
+    font-size: 12px;
+    color: #666;
+    
+}
+.prod p a:hover{ color: #C20053;}
+.f1-2 .prod {
+    width: 160px;
+    height: 233px;
+    padding: 10px 19px 0 20px;
+    overflow: hidden;
+    border-right: 1px solid #E9E9E9;
+    border-bottom: 1px solid #E9E9E9;
+}
+.f1-brand {
+    width: 1190px;
+    height: 30px;
+    padding: 15px 0;
+    background-color: #FBFBFB;
+}
+.f1-brand li {
+    float: left;
+    width: 118px;
+    height: 30px;
+    border-left: 1px dotted #ccc;
+    text-align: center;
+}
+.f1-brand li a, .f1-brand li img {
+    width: 100px;
+    height: 30px;
+    display: inline-block;
+}
+
+.header-nav-i1{
+	width: 7px;
+    height: 4px;
+    top: 16px;
+    right: 8px;
+    background: url(../images/fn_g_header.png) no-repeat -140px -28px ;
+    
+}
+
+#div1{ width: 1000px;margin:0 auto;  }
+		#fixside{  width: 36px; height: 380px; position:fixed;left: 2px; bottom: 40px; overflow: hidden}
+		#floor{ width: 36px; height: 380px; background-color: #ccc}
+		#fixside li{ width:36px; height: 36px; background-color: #f1f1f1; text-align: center; line-height: 36px; border-bottom:1px solid #ccc;  }
+		#fixside li.current{ color: #C20053 }
+		#cell {position: absolute; left: -36px;bottom: 0px; width: 36px; height: 380px; background-color: #ccc}

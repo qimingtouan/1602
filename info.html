@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+			<link rel="stylesheet" href="css/footer.css" />
+			<link href="images/favicon.ico"  rel="shortcut icon"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<style type="text/css">
+			#content{
+				width: 1190px;
+				height: 610px;
+				margin: 40px auto;
+			}
+			.c-left{
+				width:400px;
+				height: 610px;
+				float: left;
+			}
+			.mask{ height: 200px; width: 200px; background-color: #ccc; opacity: 0.7 ; position: absolute; top:0; left: 0;
+			display: none; }
+			.c-center{
+				width:540px;
+				height: 610px;
+				float: left;
+			    position: relative;
+			}
+			.c-right{
+				height: 610px;
+				float: left;
+			}
+			.img400{
+				height: 400px;
+				width:400px;
+				position: relative;
+			}
+			.img800{
+				height: 400px;
+				width:400px;
+				position:absolute;
+				overflow: hidden;
+				display: none;
+			}
+			.img800 img{
+				position: absolute;
+			}
+		#nav{ height: 80; width: 430px; background-color: #ccc;  }
+		#nav li img{ height: 60px; width: 80px;  }
+		#nav li{ float: left; border:1px solid #ddd; padding: 3px; margin:4px}
+		.title h3{
+			font-size: 18px; font-weight: bold;
+			padding: 5px;
+		}
+		.title{ padding: 10px 20px; margin: 10px 0 20px 0; border-bottom: 1px dashed #CDCDCD;}
+		.title p{ padding: 5px; color: #C70032;}
+		.num{ font-size: 24px;color: #c70034; font-weight: 700;}
+			.rmb{font-size: 16px;color: #c70034; margin-left: 20px;}
+			.price{line-height: 24px;margin: 5px 20px}
+			.del{margin-left: 20px;}
+			.price p{ padding: 2px 20px ;}
+			.dp{padding:2px 20px ; height: 32px;}
+			.dp ul li{ padding: 3px; margin:2px 3px;line-height: 16px; float: left; border: 1px solid #aaa;}
+			.dp ul {float: right; width: 430px;}
+			.dp p{ float: left; line-height: 24px; height: 24px; margin:4px 0px 2px 10px;}
+			.count1{ padding:0 20px;}
+			.count1 p{ height: 28px; padding: 10px 30px; line-height: 28px;}
+			.count1 p input{  height: 24px; width:40px ; float: left; text-align:center;}
+			.count1 p span{ display: block; float: left; height:26px; width: 26px; text-align: center;border: 1px solid #ccc; }
+			.btn{ height: 50px; width: 160px; display: block; line-height: 50px; 
+			text-align: center; background: #C70032; color: #F0F0F0; margin: 40px 100px;}
+			.count1 p strong{ float: left; margin-right:20px;}
+			a.btn:hover{ color: #F0F0F0;}
+			.cutoff p{ padding:8px 32px;}
+			.cutoff strong{ color: #C70032;}
+			.cutoff span{ background: #C70032; color: yellow; padding: 4px; margin: 10px;}
+			.price p{ background: #FFFFCC;}
+			.dp ul li.active{ border: 1px solid #C20053;}
+		</style>
+	</head>
+	<body>
+		<div id="header1"></div>
+		<div id="content">
+			<div class="c-left">
+				<div class="img400">
+				
+				</div>
+				<div >
+					<ul id="nav">
+						
+					</ul>
+		
+				</div>
+			</div>
+			<div class="c-center">
+				<div class="img800">
+					
+				</div>	
+				<div class="title">
+				
+				</div>
+				
+				<div class="price">
+					
+				</div>
+				<div class="cutoff">
+					
+				</div>
+				<div class="dp">
+					
+				</div>
+				<div class="count1">
+					<p><strong>数量</strong><span class="reduce">-</span><input type="text" id="number" value="1" /><span class="add">+</span></p>	
+				</div>
+				<div class="addcar">
+					<a href="#" class="btn" >
+						加入购物车
+					</a>
+				</div>
+			</div>
+			<div class="c-right" style="border-left: 1px dashed #ccc;">
+				<img src="images/right.png"/>
+			</div>
+		</div>
+		<div id="footer"></div>
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+	<script type="text/javascript">
+		function showNum() {
+	        var length = localStorage.length;
+	        var totalNum = 0;
+	        for (var i = 0; i < length; i++) {
+	            var key = localStorage.key(i);
+	            if (key.indexOf("lingsi"+"_") != -1) {
+	                var value = JSON.parse(localStorage.getItem(key));
+	                totalNum += value.total;
+	            }
+	        }
+	        $(".showNum").html(totalNum);
+	    }   
+	</script>
+	<script type="text/javascript">
+	 $("#header1").load("header.html",function(){
+	    	showNum()
+	    	}) ;
+	
+	
+	function fdj(url){
+			var B=800/400
+			$(".img400").on("mouseover",function(){
+				$(".mask").css({"display":"block"})
+				$(".img800").css({"display":"block"})
+		
+			})
+		
+			 $(".img400").bind('mousemove',function(e){
+			 	var out=$(".img400").offset()
+			 	//console.log(out)
+		       $(".mask").css({"left":(e.pageX-100-out.left),"top":(e.pageY-100-out.top)})
+		       var $left=$(".mask").position().left
+		       var $top=$(".mask").position().top
+		      if($left<=0){
+		      	     $left=0
+		      }
+		      if($top<=0){
+		      	$top=0
+		      }
+		 	if($left>400-400*4/8){$left=200} 
+		 	 if($top>200){$top=200} 
+		 	 $(".mask").css({"left":$left,"top":$top})
+		 	$(".img800 img").css({"left":-$left*B,"top":-$top*B})
+		
+		   });
+			$(".img400").on("mouseout",function(){
+					$(".mask").css("display","none")
+					$(".img800").css({"display":"none"})
+				})
+		
+			$("#nav").on("click","li", function(){
+				var index=$(this).index()
+				$(".img400 img").attr("src",url['src'][index])
+				$(".img800 img").attr("src",url['src800'][index])
+		
+		
+				})
+	}
+	var href = location.href;
+	 var id=href.split("?")[1]
+	 var url="info.json"
+	var num=Math.floor(id/6)
+	
+	
+	      $.ajax({
+	      	url:url,
+			type:"get",
+			dataType:"json",
+			success:function(data){
+				
+	      	for (var i = data.length- 1; i >= 0; i--) {
+	      		if(id==data[i]["id"]){
+	      			var src400=data[i]["src"]
+	      			var src800=data[i]["src800"]
+	      			var titleh3=data[i]["title-h3"]
+	      			var titlep=data[i]["title-p"]
+	      			var price1=data[i]["price1"]
+	      			var price2=data[i]["price2"]
+	      			var cutoff=data[i]["cutoff"]
+	      			var taste=data[i]["taste"]
+	      			var Ctaste=taste[num]
+	      			$(".img400").html("<img src="+src400[0]+"/><div class='mask'></div>")
+	      			$(".img800").html("<img src="+src800[0]+"/>")
+	      			$(".title").html("<h3>"+titleh3+"</h3><p>"+titlep+"</p>")
+	      			$(".price").html("<p >参考价<span class='del' ><del>"+price1+"</del></span></p><p >飞牛价<span class='rmb'>￥</span><span class='num'>"+price2+"</span></p>")
+	      			$(".cutoff").html("<p>促销信息<span>满减</span><strong>"+cutoff+"</strong></p>")
+	      			var	liList=""
+	      			for(var j=0; j<taste.length;j++){
+		      			var li="<li>"+taste[j]+"</li>"
+	      				liList+=li
+	      			}
+	      			$("#nav").html("<li><img src="+src400[0]+"></li><li><img src="+src400[1]+"></li><li><img src="+src400[2]+"></li><li><img src="+src400[3]+"></li>")
+	      			$(".dp").html("<p>选择搭配</p><ul>"+liList+"</ul>")
+	      			fdj(data[i])
+	      			var btn=$("<a class='btn' data-id="+data[i]["id"]+" data-price="+price2+"  data-src=" + src400[0] + " data-detail=" + titleh3 + " data-cutoff="+cutoff+" data-del="+price1+" data-taste="+Ctaste+">加入购物车</a>")
+	      			$(".addcar").html(btn)
+	      			
+	      		}
+	      		$(".dp li").eq(num).addClass("active").siblings().removeClass("active")
+	      	}
+	      }
+		})
+	 	var tas=""
+	 	var str=""
+	   $(".dp").on("click","li",function(){
+	   		str="00"+(parseInt(id%6)+6*$(this).index());
+	   		tas=$(this).html()
+	   		location="info.html?"+str
+	   })
+	    
+		$("#footer").load("footer.html div.m-g-footer");
+		
+		//++
+		$(".count1").on("click",".add",function(){
+        	var num = $("#number").val() * 1;
+        	$("#number").val(num + 1);
+		})
+		//--
+		$(".count1").on("click",".reduce",function(){
+        	var num = $("#number").val() * 1;
+        	if (num == "1") {
+            return false;
+        }
+        	$("#number").val(num - 1)
+		})
+		
+		
+		
+		
+		//+locastorage
+		$(".addcar").on("click",".btn",function(){
+ 
+			var id = $(this).attr("data-id");
+	        var price= $(this).attr("data-price")*1;
+	        var del=$(this).attr("data-del");
+	        var cutoff=$(this).attr("data-cutoff");
+	        var src = $(this).attr("data-src");
+	        var detail = $(this).attr("data-detail");
+	        var taste=$(this).attr("data-taste")
+	        var key ="lingsi"+"_" + id;
+	        var obj = JSON.parse(localStorage.getItem(key));
+	        if (obj) {
+	            var num = obj.total;
+	            num+=$("#number").val()*1;
+	            obj.total = num;
+	            obj.totalprice = num * price;
+	        } else {
+	            obj = {id: id, price: price, src: src, del: del,cutoff: cutoff,detail: detail, total: 1, totalprice: price,taste:taste};
+	        }
+	        var infos = JSON.stringify(obj);
+	        localStorage.setItem("lingsi_" + id, infos);;//key是唯一的
+	        showNum();
+		})
+	  
+		 
+		 $(document).on("click","#buying",function(){
+		 	location="buying.html"
+		 })
+		 	$("#footer").load("footer.html div.m-g-footer",function(){
+	})
+
+
+//{"id":"001",
+//	"src":"img-sy/_103279999_400x400.jpg",
+//	"src800":"images/zhangjunya800.jpg",
+//	"title-h3":"张君雅&nbsp日式休闲丸子 80g/袋 &nbsp（台湾地区进口）&nbsp（休闲零食）",
+//	"title-p":"台湾小吃 特产 小妹妹 进口休闲零食",
+//	 "price1": 24,
+//	 "price2":"19.9",
+//	 "cutoff":"指定商品满29元立减5元",
+//	 "taste":["奶油","原味","巧克力","黄油","鸡汁"],
+//	 "right":"",
+//	 "bottom":""
+//	 
+//}
+	</script>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/common(1).css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<script src="js/public.js"></script>
+		<script type="text/javascript" src="js/jquery-1.11.3.js">
+			
+		</script>
+		<style type="text/css">
+			html, body{ height:100%; }
+			.om{margin: 0 auto; width: 1190px }
+			.header{ width: 1190px ;height:28px ; margin: 0 auto; padding: 5px 0; background: #F9F9F9;}
+			.nav li{ float: left; margin:0 4px;}
+			.nav li a:hover{ color: #C70032;}
+			.nav{ height: 28px; float: right; margin-right: 10px; line-height: 28px;}
+			.address h3{ font-size: 12px;font-weight: 900;}
+			.mask{ height: 280px; width: 440px; position: absolute; left: 40%; top:20%; 
+			background: #fff ; border: 8px solid #999;}
+			.mask p{ height: 28px; line-height: 24px; margin:15px 5px;}
+			.mask p em{ margin: 0 4px; color: #C20053;}
+			.mask p input{ height: 24px; width: 180px;}
+			.mask .btn{ text-align: center; display: block; width: 120px; height: 30px; color:#F1F1F1; background: #C70032;
+			font-size: 16px; line-height: 30px; margin-left: 135px;}
+			.p1{font-size: 18px;font-weight: 900; padding: 4px 15px 4px 10px; background: #ccc; }
+			.close{ display: block; cursor: pointer; float: right; }
+			.fixed1{height: 100%; width: 100%; background: #000;opacity: 0.7;position: fixed1; }
+			
+			#txt2{ width: 320px;}
+			.address ul li{ float: left; height: 118px; width: 220px; margin-right: 10px; padding: 10px; border: 1px solid #ccc;}
+			.address ul li.img1{height: 138px; width: 260px; padding: 0; }
+			.address p{ font-weight: normal; font-size: 12px; color: #666; padding: 6px 14px; }
+			.address li p a:hover{color: #C20053; }
+			.address ul li.active{ border: 2px solid #F8D8DB;}
+			.tj-fix{ width: 1190px; background: #ddd;  bottom: 10px; height: 80px; left: 40px;}
+			.tj{ width: 1190px; background: #ddd; position: fixed; bottom: 10px; height: 80px; left: 40px;}
+			.tj-1{    width: 1130px;
+					    height: 40px;
+					    background-color: #ddd;
+					    font-family: "Microsoft YaHei";
+					    padding: 20px 30px;
+					    margin: 0 auto;
+					    position: relative;}
+			.tj-1 p{ float: right; height: 40px; line-height: 40px; text-align: center;}
+			.pay{text-align: center; display: block; width: 160px; height: 40px; color:#F1F1F1; background: #C70032; line-height: 40px; margin-left: 40px;}
+			.sum em{font-size: 16px; color: #C20053;margin-left: 10px;}
+			.sum span{font-size: 22px;color: #C20053;margin-left: 4px;  }
+			.posi{
+				width: 320px;
+				height: 70px;
+				border: 1px solid #C20053;
+				float:right;
+			}
+			.posi div p{
+				padding: 0px; margin: 0 20px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="fixed1" style="display: none;"></div>
+		 <div class="header">
+        <ul class="nav">
+            <li>
+              	<span>您好，15*******38</span>
+                <a href="#">[退出]</a>
+            </li>
+            <li>
+                <a href="#">我的账户</a>
+            </li>
+  
+            <li >
+                <a  href="#">卡券充值</a>
+            </li>
+
+            <li>
+                <a href="#">帮助中心</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="om"><img src="images/pay01.png" alt="" /></div> 
+    <div id="content" class="om">
+    	<div class="address">
+    	<h3>收货信息</h3>
+    	<ul>
+    		<li class="img1"><img src="images/pay1.png" alt="" /></li>
+    	</ul>	
+    	</div>
+    	
+    	
+    	
+    		<div class="mask" style="display: none;" id="mm">
+    				<h1 class="p1">新增收货人地址 <span class="close">X</span></h1>
+    	    		<p><em>*</em><span>&nbsp;收货人：</span> <input type=""  id="txt1" value="" /></p>
+    	    		<p><em>*</em><span>所在区域：</span> <select id="sel"><option>请选择省份</option></select>	
+    			<select id="sel1"><option>请选择市区</option></select>	
+    			<select id="sel2"><option>请选择县</option></select></p>
+    	    		<p><em>*</em><span>详细地址：</span> <input type="" name="" id="txt2" value="" /></p>
+    	    		<p><em>*</em><span>手机号码：</span> <input type="" name="" id="txt3" value="" /></p>
+    	    		<div ><a href="#" class="btn">保存信息</a></div>
+    	    	</div>
+    	
+
+    	
+    </div>
+    
+    <div class="om"><img src="images/pay2.png"/></div>
+    
+    <div class="goods">
+    	
+    </div>
+    
+    
+    <div class="om">
+    	<div class="posi">
+    		<div style="border: 2px solid #F88294; height: 66px;">
+    			
+    		</div>
+    	</div>
+    </div>
+
+    <div class="tj">
+    
+    	<div class="tj-1">
+    		<p><span class="pay">订单</span></p><p class="sum">应付总额<em>￥</em><span>0.00</span></p>
+    	</div>
+    </div>
+    <div id="footer"></div>
+    <script>
+   
+		window.onload=function(){
+			
+			function Drag(id){
+			this.div=document.getElementById(id)
+			this.x=0
+			this.y=0
+			var that=this
+			this.div.onmousedown=function(){
+				that.fndown()
+			}
+		}
+		Drag.prototype.fndown=function(e){
+			e=e||event
+			var that=this
+			this.x=e.clientX-this.div.offsetLeft
+			this.y=e.clientY-this.div.offsetTop
+			document.onmousemove=function(){
+				that.fnmove()
+				return false
+			}
+			document.onmouseup=function(){
+				that.fnup()
+			}
+		}
+		
+		Drag.prototype.fnmove=function(e){
+			e=e||event
+			this.div.style.left=e.clientX-this.x+'px'
+			this.div.style.top=e.clientY-this.y+'px'
+			if(this.div.offsetLeft>=document.body.clientWidth-this.div.offsetWidth){
+						this.div.style.left=document.body.clientWidth-this.div.offsetWidth+'px'
+					}
+					if(this.div.offsetTop>=document.body.clientHeight-this.div.offsetHeight){
+						this.div.style.top=document.body.clientHeight-this.div.offsetHeight+'px'
+					}
+					if(this.div.offsetTop<=0){
+						this.div.style.top=0
+					}
+					if(this.div.offsetLeft<=0){
+						this.div.style.left=0
+					}
+		}
+		
+		Drag.prototype.fnup=function(){
+			document.onmousemove=null;
+			document.onmouseup=null
+		}
+			
+		var aa=new Drag("mm")	
+			
+			
+				var oSel=document.getElementById('sel');
+				var oSel1=document.getElementById('sel1');
+				var oSel2=document.getElementById('sel2');
+				common.oAjax('city1.json',function(data){
+					for(var i=0;i<data.length;i++)
+					{
+						var option=document.createElement('option');
+						option.innerHTML=data[i].name;
+						option.value=i;
+						sel.appendChild(option);
+										
+					}
+				});
+				
+				sel.onchange=function()
+					{	
+						var pro=sel.value;
+						common.oAjax('city1.json',function(data){
+						sel1.innerHTML='<option>请选择市区</option>';
+						sel2.innerHTML='<option>请选择县区</option>';
+							for(var i=0;i<data[pro].city.length;i++)
+							{				
+								var option=document.createElement('option');
+								option.innerHTML=data[pro].city[i].name;
+								option.value=i;
+								sel1.appendChild(option);
+							}
+						})
+						
+					}
+				
+				sel1.onchange=function(){
+					var cityIndex=sel1.value;
+					var proIndex=sel.value;
+						common.oAjax('city1.json',function(data){
+						sel2.innerHTML='';
+							for(var i=0;i<data[proIndex].city[cityIndex].area.length;i++)
+							{				
+								var option=document.createElement('option');
+								option.innerHTML=data[proIndex].city[cityIndex].area[i];
+								sel2.appendChild(option);
+							}
+						})
+				}
+				
+				$(".mask .close").click(function(){
+					$(".mask").css("display","none")
+					$(".fixed1").css("display","none")
+					
+				})
+				
+				$(".img1").click(function(){
+					$(".mask").css("display","block")
+					$(".fixed1").css("display","block")
+					$("#txt1").val("")
+					$("#txt2").val("")
+					$("#txt3").val("")
+				})
+				
+				
+				
+				
+				$(".btn").click(function(){
+					if($("#txt1").val()&&$("#txt3").val()&&$("#txt3").val()){
+						
+					
+					$(".mask").css("display","none")
+					$(".fixed1").css("display","none")
+					$(".address ul li").removeClass("active")
+					var name=$("#txt1").val()
+					var addr2=$("#txt2").val()
+					var mobile=$("#txt3").val()
+					var addr1=$("#sel").find("option").eq($("#sel").val()*1+1).html()+" "+$("#sel1").find("option").eq($("#sel1").val()*1+1).html()+" "+$("#sel2").val()
+					var li="<li class='active'><h3>"+addr1+"</h3><p>详细地址：&nbsp"+addr2+"</p><p>收件人：&nbsp"+name+"&nbsp; 电话：&nbsp;"+mobile+"</p><p><a href='#'>删除</a></p></li>"
+					$(".address ul").append(li)
+					$(".posi div").html("<h3>"+addr1+"</h3><p>"+addr2+"</p><p>"+name+"  "+mobile+"</p>")
+					}else{
+						alert("请填写完整信息")
+					}
+				})
+				
+				$(".address ul").on("click","li p a",function(){
+					$(this).parents("li").remove()
+				})
+		
+				var length = localStorage.length; //获取所有的key长度
+  // var html="";
+    for(var i = 0;i<length;i++){
+    	
+        var key = localStorage.key(i);
+        if (key.indexOf("lingsi_")!=-1){
+            var obj =JSON.parse( localStorage.getItem(key));
+            if(!obj.taste){obj.taste=""}
+            var li=$("<li class='item'><ul><li class='selected'><input class='check-one' type='checkbox'></li><li class='goods'><img src="+
+            obj.src+"><span>"+obj.detail+"</span></li><li class='size'><span>"+obj.taste+"</span></li><li class='price'> <span>"+
+            (obj.price*1).toFixed(2)+"</span></li><li class='amount count'><span class='reduce'>-</span><input class='count-input' type='text' value="+(obj.total*1)+"> <span class='add'>+</span></li><li class='sum'><span class='subtotal'>"+
+            (obj.totalprice*1).toFixed(2)+"</span></li><li class='weight'>0.01</li><li class='operate'><span class='delete' data-key=lingsi_"+obj.id+">删除</span></li></ul></li>")
+        }
+
+        $("#shop").append(li);
+    }
+			var str=location.href
+			var money=str.split("?")[1]
+			$(".sum span").html(money)	
+				
+				$("#footer").load("footer.html .m-g-footer")
+				
+	}
+		</script>
+    
+	</body>
+</html>

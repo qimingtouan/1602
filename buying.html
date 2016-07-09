@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<link href="images/favicon.ico"  rel="shortcut icon"/>
+		<link rel="stylesheet" href="css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="css/common(1).css"/>
+		<style type="text/css">
+			.om{margin: 0 auto; width: 1190px }
+			.header{ width: 1190px ;height:28px ; margin: 0 auto; padding: 5px 0; background: #F9F9F9;}
+			.nav li{ float: left; margin:0 4px;}
+			.nav li a:hover{ color: #C70032;}
+			.nav{ height: 28px; float: right; margin-right: 10px; line-height: 28px;}
+			
+			
+			.caption{  height: 32px; width: 1190px; border-top:1px dashed #ccc;  }
+			.caption li{ float: left; text-align: center; line-height: 32px }
+			.caption li input{ position: relative; top: 2px }
+			.selected{ width: 79px; border-right: 1px dashed #ccc;line-height: 120px  }
+			.goods{ width: 309px;border-right: 1px dashed #ccc ; position: relative; line-height: 30px; padding:0 25px;}
+			.price,.amount,.weight,.size,.sum{ width:129px;border-right: 1px dashed #ccc;line-height: 120px;
+				
+			 }
+			.operate{width: 100px; line-height: 120px}
+			.item li{  float: left;height: 120px; text-align: center;  }
+			.item ul{ border-bottom: 1px solid #ccc; height: 120px; background: #FFF8E1;}
+			.amount input{ width: 60px; text-align: center; }
+			.amount span{  margin-right: 4px; font-size: 16px; padding: 0 2px;  cursor: pointer;}
+			.goods img{ width: 100px; height: 80px; position: absolute; top:20px; left: 25px; }
+			.goods span{ margin-left: 100px; line-height:30px; display: block; float: right; width: 200px; margin-top:30px; text-align: left;  }
+			.operate span:hover{ color: red }
+			.item-bottom{ height:72px;float: right; }
+			.item-bottom li{ padding: 15px 25px 8px; float:left; height: 49px; text-align: center;}
+			.th {
+			    display: block;
+			    color: #3c3c3c;
+			    font-weight: 700;
+			    margin-bottom: 7px;
+			   font-size: 16px;
+		   }
+		   .number{ display: block; padding: 5px;}
+		   .js{ padding-top: 10px;}
+		   .js ul{position: relative;
+			    z-index: 100;
+			    bottom: 0;
+			    margin: 0 auto;
+			    width: 1190px;
+			    min-width: 815px;
+			    height: 52px;
+			    background: #fff;
+			    border: 1px solid #ddd;
+			    left: 0;
+			    border-right: 0 none;
+			    text-align: center;}
+		   	.js ul li{
+			    float: left;
+			    line-height: 52px;
+			    font-family: SimSun;
+		   	}
+		   	.js ul .li-01 {
+    		width: 87px;
+    		text-align: left;
+			}
+			.js ul .li-01 input{
+				position: relative;
+				top:2px;
+				margin: 0 0 0 30px;
+			}
+			.js ul .li-02 {
+		    margin: 0 14px 0 5px;
+		    color: #06c;
+			}
+			li .clearing-total2 {
+    			width: 172px;
+    			display: inline-block;
+    			cursor: pointer;
+    			background:url(images/clearing-total.png);
+    			 margin: 0;
+    			height: 68px;
+    			overflow: hidden;
+   				 position: absolute;
+    			zoom: 1;
+    			bottom:-2px;
+    			right: 0;
+    		}
+    		
+    		.js ul .li-04 {
+			    display: inline;
+			    float: right;
+			    margin-right: 200px;
+			    text-align: right;
+			    font-size: 16px;
+			    font-weight: 800;
+			    
+			} 
+			.js ul .li-04 dt{ float: left; color: #1f1f1f}
+			.js ul  .li-04 dd{ float: left;color: #C70032;font-size: 18px;}
+			
+			.js	ul .li-05 {
+    		float: right;
+    		cursor: pointer;
+			}
+			.red{ #C70003}
+		</style>
+	</head>
+	<body>
+    <div class="header">
+        <ul class="nav">
+            <li>
+              	<span class="log">您好，请登录</span>
+                <a href="#" class="exit">[退出]</a>
+            </li>
+            <li>
+                <a href="#">我的账户</a>
+            </li>
+  
+            <li >
+                <a  href="#">卡券充值</a>
+            </li>
+
+            <li>
+                <a href="#">帮助中心</a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="om"><img src="img-sy/feiniu.png" alt="" /></div> 
+    
+ <div id="content" class="om">
+     <div>
+		<ul class="caption">
+			<li class="selected "><input type="checkbox" class="check-all"> 全选</li>
+			<li class="goods">商品</li>
+			<li class="size">规格</li>
+			<li class="price">单价</li>
+			<li class="amount count">数量</li>
+			<li class="sum subtotal">小计</li>
+			<li class="weight">重量(KG)</li>
+			<li class="operate">操作</li>
+		</ul>
+	</div>	
+		<ul id="shop">
+			<!--<li class="item">
+				<ul>
+					<!--<li class="selected "><input class="check-one" type="checkbox"> </li>
+					<li class="goods"><img src="img-sy/20150924135736_kk-0.jpg"><span>Casio/卡西欧 EX-TR350</span></li>
+					<li class="size"> <span>hong</span></li>
+					<li class="price"> <span>111.00</span></li>
+					<li class="amount count"><span class="reduce">-</span><input class="count-input" type="text" 
+					value="1"> <span class="add">+</span></li>
+					<li class="sum"><span class="subtotal">111.00</span></li>
+					<li class="weight">0.01</li>
+					<li class="operate"><span class="delete">删除</span></li>
+				</ul>
+			</li>-->
+		</ul>
+	<div style="background:#ccc; height: 72px;">
+		<ul class="item-bottom">
+				<li >
+					<span class="th">数量</span>
+					<span class="number" id="selectedTotal">0</span>
+				</li>
+				<li >
+					<span class="th">重量</span>
+					<span class="number">
+						<span>0.00</span>kg
+					</span>
+				</li>
+				<li>
+					<span class="th">已优惠</span>
+ 					<span class="number" >
+ 						-<em>¥</em>
+ 						<b >0.00</b>
+ 					</span>
+				</li>
+				<li>
+					<span class="th">运费（元）</span>
+					<span class="number">
+					<em>¥</em>
+					<b >0.00</b>
+					</span>
+				</li>
+				<li>
+					<span class="th">小计（元）</span>
+					<span class="number" id="priceTotal">
+						<em>¥</em>
+						<b >0.00</b>
+					</span>
+				</li>
+	</ul>
+	</div>
+	
+		<!--<div id="footer">
+		<ul>
+			<li><input type="checkbox"> <span>全选</span><span>删除已选商品</span></li>
+			<li>已选商品<span id="quli">0</span>件  合计<span id="money">0</span>元</li>
+		 	<li><span class="total">结算</span></li>
+			
+		</ul>
+
+		</div>-->
+		<div class="js">
+			<ul class="fixed toggle" style="display: block;">
+			<li class="li-01">
+				<input  type="checkbox" class="all-select check-all" id="qx-2" >
+				<label for="qx-2">全选</label>
+		
+			</li>
+			<li class="li-02 a-delete" id="deleteAll">
+				<a href="javascript:void(0);">删除选中的商品</a>
+			</li>
+			<li class="li-02">
+				<a href="javascript:void(0);">清空购物车</a>
+			</li>
+		
+			<li class="li-05">
+				<i class="clearing-total2"></i>
+			</li>
+		
+			<li class="li-04">
+				<dl >
+					<dt>应付金额：</dt>
+					<dd class="dd-01 red">
+						<em>¥</em>
+						<span>00.00</span>
+					</dd>
+				
+				</dl>
+			</li>
+		</ul>
+	</div>
+</div>    
+   <div class="om">
+   	<img src="img-sy/feiniu1.png"/>
+   </div> 	
+    	
+    <div id="footer"></div>	
+
+    
+	</body>
+	<script type="text/javascript" src="js/jquery-1.11.3.js">
+		
+	</script>
+	<script type="text/javascript">
+	$("#footer").load("footer1.html .m-g-footer")
+	var length = localStorage.length; //获取所有的key长度
+  // var html="";
+    for(var i = 0;i<length;i++){
+    	
+        var key = localStorage.key(i);
+        if (key.indexOf("lingsi_")!=-1){
+            var obj =JSON.parse( localStorage.getItem(key));
+            if(!obj.taste){obj.taste=""}
+            var li=$("<li class='item'><ul><li class='selected'><input class='check-one' type='checkbox'></li><li class='goods'><img src="+
+            obj.src+"><span>"+obj.detail+"</span></li><li class='size'><span>"+obj.taste+"</span></li><li class='price'> <span>"+
+            (obj.price*1).toFixed(2)+"</span></li><li class='amount count'><span class='reduce'>-</span><input class='count-input' type='text' value="+(obj.total*1)+"> <span class='add'>+</span></li><li class='sum'><span class='subtotal'>"+
+            (obj.totalprice*1).toFixed(2)+"</span></li><li class='weight'>0.01</li><li class='operate'><span class='delete' data-key=lingsi_"+obj.id+">删除</span></li></ul></li>")
+        }
+
+        $("#shop").append(li);
+    }
+    //delete
+    $(document).on("click",".delete",function(){
+        var key = $(this).attr("data-key");
+        localStorage.removeItem(key);
+        $(this).parents("li.item").remove();
+         getAll();
+    })
+    
+    
+    
+      $(".add").click(function () {
+//      var priceId= "price-"+ $(this).attr("id").split("-")[1]; //add-1
+//      alert($("#"+priceId).html());
+        var input = $(this).prev(); //表示数量框
+        var num = input.val() * 1;//数量
+        input.val(num + 1);
+//      var reduce = $(this).prev().prev();//找到减号的位置
+        var reduce = $(this).prevAll(".reduce");
+        reduce.html("-");
+
+        getTotal(this, input.val());
+        getAll();
+
+    });
+
+    //封装小计求和
+    function getTotal(ele, num) {
+        var totaPrice = $(ele).parent().siblings(".sum").find("span");
+        var price = $(ele).parent().siblings(".price").find("span").html();
+        var total = (price * num).toFixed(2);
+        totaPrice.html(total);
+    }
+
+    //减号
+    //点击减号  input的数量-1   减号在特定情况下消失
+    //更新小计
+    $(".reduce").click(function () {
+        var input = $(this).next(); //表示数量框
+        var num = input.val() * 1;//数量
+        if (num == "1") {
+            return false;
+        }
+        input.val(num - 1)
+        var numValue = input.val();
+        if (numValue == "1") {
+            $(this).html("");
+        }
+        getTotal(this, numValue);
+        getAll();
+    })
+
+    //全选
+    //点击全选按钮之后  根据全选按钮选中的状态  去决定其他按钮 是否选中
+    $(".check-all").click(function () {
+        var status = $(this).prop("checked");
+        console.log(status)
+        $(".check-one").prop("checked", status);
+        getAll();
+    })
+    //单个按钮
+    $(".check-one").click(function () {
+        getAll();
+    });
+
+    //封装一个函数去判断check-one是否被选中
+    //如果选中  则统计该行的 商品数量  和 小计
+    function getAll() {
+
+        var totalNum = 0;
+        var totalPrice = 0;
+     $(".check-one").each(function () {
+            var status = $(this).prop("checked");
+           // console.log(status)
+            if (status) {
+            //   $(this).parent().nextAll(".count-input")
+                totalNum += $(this).parents("li.item").find(".count-input").val() * 1;
+                console.log(totalNum)
+                totalPrice += $(this).parents("li.item").find(".subtotal").html() * 1;
+            }
+     });
+        $("#selectedTotal").html(totalNum);
+        $("#priceTotal").html(totalPrice.toFixed(2));
+    	$(".li-04 span").html(totalPrice.toFixed(2))
+    	
+    }
+
+	//delete ture
+    $("#deleteAll").click(function () {
+        $(".check-one").each(function () {
+            var status = $(this).prop("checked");
+            if (status) {
+            	var key = $(this).parent().siblings(".operate").find(".delete").attr("data-key");
+            	
+        		localStorage.removeItem(key);
+                $(this).parents("li.item").remove()
+                 
+            }
+        });
+        getAll();
+    });
+    
+    $(".li-05").click(function(){
+    	if($(".li-04 span").html()*1>0){
+    		location="pay.html?"+$(".li-04 span").html();
+    		
+    	}
+    	else{
+    		alert("请勾选所需商品")	
+    		}
+    })
+    function logIn(){
+				var cookie=document.cookie
+				if (cookie != "") {
+					var cookieList = cookie.split("; ")
+					for (var i = 0; i < cookieList.length; i++) { //循环数组中的元素
+	                var cookie1 = cookieList[i].split("="); //一个带有等号的字符串
+	                var cKey = cookie1[0]
+	                var value = cookie1[1]
+		                if (cKey.indexOf('current')!=-1) {  
+		                	$(".log").html(value)
+		                   return value;
+		                }
+		                if(i==cookieList.length-1){
+		                	$(".log").html("您好，请登录")
+		                	return false
+		                }
+            		}
+				 
+				}
+			}
+			logIn()
+    $(".exit").click(function(){
+				removeCookie("current")
+				logIn()
+			})
+    
+	</script>
+</html>

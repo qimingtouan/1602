@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/reg3.css" />
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link href="images/favicon.ico"  rel="shortcut icon"/>
+		<style type="text/css">
+			#checkCode{ background:#ddd ; margin: 0 10px; padding: 6px 8px;}
+		</style>
+	</head>
+	<body>
+		
+		<div class="regcon">
+        <a class="m-fnlogo fn-fl" href="#"><img src="img-sy/201606061936141465212974_kk-0.png"/></a><span class="m-fntit">欢迎注册</span>
+        <div class="ui_tab">
+            <ul class="ui_tab_nav regnav">
+                <li class="uli"><a href="register.html">手机注册</a></li>
+                <li class="uli active"><a href="#">邮箱注册</a></li>
+                <li class="no fn-fr loginbtn">我已注册，马上<a href="login.html">登录&gt;</a></li>
+            </ul>
+            <div class="ui_tab_content">
+
+                <div class="m-fnbox ui_panel" style="display: block;">
+                    <div class="fnlogin fnlogin3 clearfix">
+                    
+                        <div class="line">
+                            <label class="linel"><span class="dt">邮箱：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp femail J_email" placeholder="请输入邮箱"><p class="fn-fl errorbox v-txt" id="emailBox">邮箱格式输入不正确</p>
+                            </div>
+                        </div>
+
+                        <div class="line">
+                            <label class="linel"><span class="dt">设置密码：</span></label>
+                            <div class="liner">
+                                <input type="password" class="inp fpass J_password" placeholder="6-16位大小写英文字母、数字或符号的组合" autocomplete="off" maxlength="16"><p class="fn-fl errorbox v-txt" id="pwBox">该密码比较简单，有被盗风险，建议您更改更复杂的密码</p><p class="fn-fl noticebox v-txt2">6-16位字符，建议由字母、数字和符号两种以上组合</p>
+                                <p class="safeline"><span>安全程度：</span><span class="sz">低</span><span class="sz">中</span><span class="sz">高</span></p>
+
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">确认密码：</span></label>
+                            <div class="liner">
+                                <input type="password" class="inp fsecpass J_password2" placeholder="请再次输入密码" autocomplete="off" maxlength="16"><p class="fn-fl errorbox v-txt" id="pwBox2">两次输入密码不一致</p>
+                            </div>
+                        </div>
+                        <div class="line">
+                            <label class="linel"><span class="dt">手机号码：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp fmobile J_cellphone" placeholder="请输入手机号码"><p class="fn-fl errorbox v-txt" id="mobileBox">手机号码输入不正确</p>
+                            </div>
+                        </div>
+                        
+                            <div class="line">
+                                <label class="linel"><span class="dt">图形验证码：</span></label>
+                                <div class="liner">
+                                    <input type="text" class="inp imgcode J_imgcode" placeholder=""><span class="v-captcha"><span id="checkCode">1vts</span><span>看不清？<a id="cbtn" class="cbtn refresh">换一张</a></span></span><p class="fn-fl errorbox v-txt" id="imgcodeErr">验证码输入不正确</p>
+                                </div>
+
+                            </div>
+                        
+                        <div class="line">
+                            <label class="linel"><span class="dt">验证码：</span></label>
+                            <div class="liner">
+                                <input type="text" class="inp fcode J_code" placeholder="">
+                                <button class="fn-fl icode disabled" id="sendSms" disabled="">获取验证码</button><p class="fn-fl errorbox v-txt" id="mbmsgBox">验证码输入不正确</p></div>
+                            <div id="show-voice" class="show-voice"></div>
+                        </div>
+
+                        <div class="line liney clearfix">
+                            <label class="linel">&nbsp;</label>
+                            <div class="liner">
+                                <div class="clearfix checkcon">
+                                    <p class="fn-fl checktxt">
+                                        <input type="checkbox" class="iyes fn-fl J_protocal"><span class="fn-fl">我已阅读并同意</span><a class="itxt fn-fl" href="http://sale.feiniu.com/help_center/hc-2.html" target="_blank">《飞牛网服务协议》</a>
+                                    </p>
+                                    <p class="fn-fl errorbox v-txt" id="protocalBox"></p>
+
+                                </div>
+
+                                <a class="regbtn J_btn_agree J_btn_agree2" href="javascript:;">同意协议并注册</a>
+                                <p class="v-txt"><span class="fnred">请勾选</span>我已阅读并同意<a class="itxt" href="" target="http://sale.feiniu.com/help_center/hc-2.html">《飞牛网服务协议》</a></p>
+                                <input type="hidden" class="isQiye" name="isQiye" value="0">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</body>
+	
+	<script type="text/javascript" src="js/jquery-1.11.3.js">
+		
+	</script>
+	<script type="text/javascript" src="js/cookie.js">
+		
+	</script>
+	<script type="text/javascript">
+	var isMobile=isSecPwd=isCheckBox=isCode=false;
+	
+	function createChar(num1,num2){
+   				var arr1=[];
+   				for( var i=num1 ; i<num2; i++)
+				arr1.push(String.fromCharCode(i))
+				return arr1
+			}
+			var arr=[],arr1=createChar(97,123),arr2=createChar(65,91),arr3=createChar(48,58)
+			arr=arr1.concat(arr2).concat(arr3)//产生数字字母
+			
+			function createCode(){
+				var str1=""
+					for(var i=0;i<4;i++){
+						str1+=arr[parseInt(Math.random()*62)]
+					}
+					return str1
+			}
+				$("#checkCode").html(createCode())
+				$(".imgcode").blur(function(){
+					if($(this).val()==$("#checkCode").html().toLowerCase()){
+						$(this).addClass("success")
+						$(this).nextAll(".v-txt").css("display","none")
+						isCode=true;
+						code()
+						}
+					else{
+						$(this).nextAll(".v-txt").css("display","block")
+						$(this).removeClass("success")
+							}
+					
+				})
+				$(".refresh").click(function(){
+					$("#checkCode").html(createCode())
+					})
+	
+	
+	
+		function isEmail(){
+			var reg=/^\w([\w\.\-])*@(([a-zA-Z0-9])+\.)+([a-zA-Z0-9]){2,4}$/
+			return reg.test($(".femail").val())
+		}
+	function pwdLevel(val){
+		var count=0
+		var reg1=/(\d+)/
+		var reg2=/[a-z]+/
+		var reg3=/[A-Z]+/
+		var reg4=/[\W_]+/
+			var arr=[reg1,reg2,reg3,reg4]
+		for(var i=0;i<4;i++){
+			
+			if(arr[i].test(val)){
+				count++
+			}
+			if(count>=3){count=3}
+		}
+		return count
+	}
+	function isPwd(){
+		console.log($(".fpass").val().length)
+		if($(".fpass").val().length<6){
+			$(".fpass").nextAll(".v-txt").css("display","block")
+			$(".fpass").removeClass("success")
+			return false
+		}else{
+			$(".fpass").addClass("success")
+			$(".fpass").nextAll(".v-txt").css("display","none")
+			code();
+			return true;
+		}
+	}
+	
+	function checkPwd(){
+		if($(".fsecpass").val()==$(".fpass").val()){
+			$(".fsecpass").nextAll(".v-txt").css("display","none")
+			$(".fsecpass").addClass("success")
+			isSecPwd=true;
+		}else{
+			$(".fsecpass").nextAll(".v-txt").css("display","block")
+			$(".fsecpass").removeClass("success")
+			
+		}
+	
+	}
+	function checkMobile(){
+ 		var reg=/^(13|15|17|18)\d{9}$/
+ 		if(reg.test($(".fmobile").val())){
+ 			$(".fmobile").nextAll(".v-txt").css("display","none")
+			$(".fmobile").addClass("success")
+ 			isMobile=true;
+ 			code()}
+		else{
+			$(".fmobile").nextAll(".v-txt").css("display","block")
+			$(".fmobile").removeClass("success")
+		}
+ 		
+ 	}
+	
+	function code(){
+		if(isMobile){
+			$("#sendSms").prop("disabled",false).removeClass("disabled")
+	
+		}
+	}
+	
+	
+	
+	$(".femail").change(function(){
+		if(isEmail()){
+			$(this).addClass("success")
+			$(this).nextAll(".v-txt").css("display","none")
+			
+		}else{
+			$(this).nextAll(".v-txt").css("display","block")
+			$(this).removeClass("success")
+		}
+	})
+
+	$(".fpass").blur(function(){
+		isPwd()
+		
+	})
+	$(".fsecpass").change(function(){
+		checkPwd()
+	})
+	$(".fmobile").change(function(){
+		checkMobile()
+		
+	})
+	
+	$(".iyes").click(function(){
+ 		isCheckBox=$(this).prop("checked")
+ 		//alert(isCheckBox)
+ 	})
+	
+	$(".fcode").change(function(){
+   		var str=$(".fmobile").val().substring(5,11)
+   		
+   		if(str==$(this).val()){
+				isMobileCode=true
+				$(this).addClass("success")
+				$(this).nextAll(".v-txt").css("display","none")
+				}
+		else{
+				$(this).nextAll(".v-txt").css("display","block")
+				$(this).removeClass("success")
+				}
+   		
+   	})
+	
+//		$(document.body).on("change",".femail,.fpass,.fsecpass,.fmobile,.imgcode,.fcode",function(){
+//			if(true){
+//				$(this).nextAll(".v-txt").css("display","block")
+//				}
+//			
+//		})
+		
+		$(".regbtn").click(function(){
+ 		var res=isMobile&&isSecPwd&&isCheckBox&&isCode&&isMobileCode&&isPwd()&&isEmail()
+ 		if(res){
+ 			var useName=$(".femail").val(),pword=$(".fpass").val()
+ 			setCookie("userName_"+useName, useName, 5);
+            setCookie("pwd_"+useName,pword, 5);
+            setCookie("current", useName, 5);
+ 			location="index.html"
+ 		}
+
+ 	})
+		
+		
+		$(".fpass").on("keydown",function(){
+			var value=$(".fpass").val()
+			var level=pwdLevel(value)
+			
+			switch(level){
+				case 1: $(".sz").eq(0).css("background-color","red").siblings(".sz").css("background-color","#D5D5D5") ;break;
+				case 2: $(".sz").eq(0).css("background-color","orange") ;
+						$(".sz").eq(1).css("background-color","orange");
+						$(".sz").eq(2).css("background-color","#D5D5D5");
+						break;
+				case 3: $(".sz").css("background-color","green") ;break;
+				default:$(".sz").css("background-color","#D5D5D5");break
+			}
+			
+		})
+		
+		
+	</script>
+</html>
